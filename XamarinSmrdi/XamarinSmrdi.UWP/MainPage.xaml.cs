@@ -12,6 +12,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using ImageCircle.Forms.Plugin.Abstractions;
+using ImageCircle.Forms.Plugin.UWP;
 
 namespace XamarinSmrdi.UWP
 {
@@ -22,6 +24,7 @@ namespace XamarinSmrdi.UWP
             this.InitializeComponent();
 
             LoadApplication(new XamarinSmrdi.App());
+            ImageCircleRenderer.Init();
         }
     }
 }

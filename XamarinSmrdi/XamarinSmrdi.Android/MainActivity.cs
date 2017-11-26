@@ -6,6 +6,14 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Android.Telephony;
+using Android.Content;
+using ImageCircle.Forms.Plugin.Abstractions;
+using ImageCircle.Forms.Plugin.Droid;
+using Android.Provider;
+using Android.Database;
+using Plugin.Contacts;
+using Plugin.Permissions;
 
 namespace XamarinSmrdi.Droid
 {
@@ -21,6 +29,12 @@ namespace XamarinSmrdi.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
+            ImageCircleRenderer.Init();
+           
+        }
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
+        {
+            PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
 }
