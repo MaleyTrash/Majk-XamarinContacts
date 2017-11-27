@@ -60,7 +60,6 @@ namespace XamarinSmrdi
 
                 List<Plugin.Contacts.Abstractions.Contact> contacts = null;
                 CrossContacts.Current.PreferContactAggregation = false;
-
                 if (CrossContacts.Current.Contacts == null)
                 {
                     return;
@@ -69,11 +68,15 @@ namespace XamarinSmrdi
                 contacts = CrossContacts.Current.Contacts.ToList();
                 foreach (var contact in contacts)
                 {
-                    
                     this.Contacts.Add(contact);
                 }
                 
             }
+        }
+        public void ClickAnimation(StackLayout tag)
+        {
+            var ClickAnimation = new Animation(v => tag.Scale = v, 0.90, 1, Easing.Linear);
+            ClickAnimation.Commit(this, "ClickAnimation", 25, 150, null);
         }
         public StackLayout AddConctact(string DisplayName, string PhoneNumber)
         {
@@ -122,12 +125,20 @@ namespace XamarinSmrdi
                 }
             };
             var tapGestureRecognizer = new TapGestureRecognizer();
-            tapGestureRecognizer.Tapped += (s, e) => {
-                MainPage fpm = new MainPage(DisplayName,PhoneNumber);
+            tapGestureRecognizer.Tapped += async (s, e) => {
+                
+                ClickAnimation(Card);
+                await DelayAsync();
+                MainPage fpm = new MainPage(DisplayName, PhoneNumber);
                 Application.Current.MainPage = fpm;
             };
             Card.GestureRecognizers.Add(tapGestureRecognizer);
             return Card;
         }
+        public async Task DelayAsync()
+        {
+            await Task.Delay(1000);
+        }
+
     }
 }

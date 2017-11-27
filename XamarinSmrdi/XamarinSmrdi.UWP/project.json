@@ -3,6 +3,7 @@
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
     "Xam.Plugin.Contacts": "2.2.0.37-beta",
     "Xam.Plugins.Forms.ImageCircle": "1.8.1",
+    "Xam.Plugins.Messaging": "5.0.0",
     "Xamarin.Forms": "2.4.0.280"
   },
   "frameworks": {

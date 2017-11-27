@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using ImageCircle.Forms.Plugin.Abstractions;
+using Plugin.Messaging;
+using Plugin.Contacts;
 
 namespace XamarinSmrdi
 {
@@ -50,6 +52,7 @@ namespace XamarinSmrdi
                 }
 
             }
+            Call.Command = new Command(() => MakeACall(PhoneNumber));
             CardsView.Content = CardLayout;
 
         }
@@ -86,6 +89,16 @@ namespace XamarinSmrdi
                 }
             };
             return Card;
+        }
+        public void MakeACall(string PhoneNumber)
+        {
+            Device.OpenUri(new Uri("tel:" + PhoneNumber));
+        }
+        protected override bool OnBackButtonPressed()
+        {
+            Page1 fpm = new Page1();
+            Application.Current.MainPage = fpm;
+            return true;
         }
     }
 }
