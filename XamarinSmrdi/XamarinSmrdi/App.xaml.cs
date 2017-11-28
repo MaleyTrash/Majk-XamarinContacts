@@ -13,7 +13,7 @@ namespace XamarinSmrdi
         {
             InitializeComponent();
 
-            MainPage = new XamarinSmrdi.Page1();
+            MainPage = new XamarinSmrdi.TabbedPage1();
         }
 
         protected override void OnStart()

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TabbedPageWithNavigationPage;assembly=TabbedPageWithNavigationPage"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             x:Class="XamarinSmrdi.TabbedPage1">
+  <!--Pages can be added as references or inline-->
+    <ContentPage Title="ContactsTab" x:Name="ContactsTab"/>
+    <ContentPage Title="DetailTab" x:Name="DetailTab">
+        <ContentPage.Content>
+            <StackLayout VerticalOptions="StartAndExpand" BackgroundColor="WhiteSmoke" Spacing="0">
+                <StackLayout BackgroundColor="DimGray">
+                    <StackLayout x:Name="StackL" Orientation="Horizontal" BackgroundColor="DimGray" Padding="0,20,0,0">
+                        <controls:CircleImage x:Name="ContactPic" Aspect="AspectFill"></controls:CircleImage>
+                    </StackLayout>
+                    <Label x:Name="ContanctName" Text=" " HorizontalTextAlignment="Center"  TextColor="White" VerticalOptions="StartAndExpand" FontSize="32"></Label>
+                    <Label x:Name="ContanctNumber" Text=" " HorizontalTextAlignment="Center" TextColor="#e6e6e6" VerticalOptions="StartAndExpand" FontSize="16" Margin="0,0,0,10"></Label>
+                </StackLayout>
+                <Grid x:Name="GridCall" BackgroundColor="#bfbfbf" HorizontalOptions="StartAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Button x:Name="Call" Text="Call" Grid.Column="0" BackgroundColor="#ccffcc" Margin="10,5,0,5"></Button>
+                    <Button x:Name="Msg" Text="Message" Grid.Column="1" BackgroundColor="#ffffcc" Margin="0,5,10,5"></Button>
+                </Grid>
+                <ScrollView x:Name="CardsView">
+
+                </ScrollView>
+            </StackLayout>
+        </ContentPage.Content>
+    </ContentPage>
+</TabbedPage>
